@@ -5,12 +5,15 @@ from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 # Импорт используемых библиотек
 
+# Настройка драйвера
 options = webdriver.EdgeOptions()
 options.add_experimental_option("detach", True)
 driver = webdriver.Edge(options=options, service=EdgeService(EdgeChromiumDriverManager().install()))
 base_url = "https://www.saucedemo.com/" #Тестовый сайт для Selenium
 driver.get(base_url)
-driver.set_window_size(1920, 1080) # Настойка разрешения монитора
+driver.set_window_size(1920, 1080) # Настройка разрешения монитора
+
+# Заполнение полей с помощью метода send_keys
 user_name = driver.find_element(By.ID, "user-name")
 user_name.send_keys("visual_user")
 user_password = driver.find_element(By.ID, "password")
