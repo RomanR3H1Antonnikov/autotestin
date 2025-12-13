@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 # Импорт используемых библиотек
@@ -10,5 +11,9 @@ driver = webdriver.Edge(options=options, service=EdgeService(EdgeChromiumDriverM
 base_url = "https://www.saucedemo.com/" #Тестовый сайт для Selenium
 driver.get(base_url)
 driver.set_window_size(1920, 1080) # Настойка разрешения монитора
-time.sleep(10)
-driver.close()
+user_name = driver.find_element(By.ID, "user-name")
+user_name.send_keys("visual_user")
+user_password = driver.find_element(By.ID, "password")
+user_password.send_keys("secret_sauce")
+# time.sleep(10)
+# driver.close()
