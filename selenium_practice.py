@@ -13,10 +13,8 @@ base_url = "https://www.saucedemo.com/" #Тестовый сайт для Seleni
 driver.get(base_url)
 driver.set_window_size(1920, 1080) # Настройка разрешения монитора
 
-# Заполнение полей с помощью метода send_keys
-user_name = driver.find_element(By.ID, "user-name")
+# Заполнение полей с помощью метода send_keys c использованием XPATH
+user_name = driver.find_element(By.ID, "//input[@id='user-name']") #с помощью кастомного локатора id
 user_name.send_keys("visual_user")
-user_password = driver.find_element(By.ID, "password")
+user_password = driver.find_element(By.ID, "//input[@placeholder='Password']") #с помощью кастомного локатора placeholder
 user_password.send_keys("secret_sauce")
-# time.sleep(10)
-# driver.close()
