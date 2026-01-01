@@ -34,5 +34,5 @@ logout_button = driver.find_element(By.XPATH, "//*[@id='logout_sidebar_link']").
 
 get_url = driver.current_url # получаем текущий url для проверки логаута
 url = 'https://www.saucedemo.com/'
-assert url == get_url
+assert url == get_url, f"Ошибка логаута! Мы ожидали {url}, а получили {get_url}"
 print("URL корректен и совпадает, выход из аккаунта прошёл успешно")
